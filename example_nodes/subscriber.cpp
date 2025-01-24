@@ -8,11 +8,11 @@ public:
     Subscriber() : Node("Subscriber") // Run the init from Node into the subscriber node
     {
         subscription_ = this->create_subscription<std_msgs::msg::UInt64>(
-            "topic", 10, std::bind(&Subscriber::topic_callback, this, std::placeholders::_1));
+            "amazing_int", 10, std::bind(&Subscriber::magic_fun, this, std::placeholders::_1));
     }
 
 private:
-    void topic_callback(const std_msgs::msg::u_int64::SharedPtr msg) const
+    void magic_fun(const std_msgs::msg::u_int64::SharedPtr msg) const
     {
         RCLCPP_INFO(this->get_logger(), "Received: %lu", msg->data);
     }
